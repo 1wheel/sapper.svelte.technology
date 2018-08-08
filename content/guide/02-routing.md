@@ -83,7 +83,6 @@ export async function get(req, res, next) {
 	const post = await db.get(slug);
 
 	if (post !== null) {
-		res.set('Content-Type', 'application/json');
 		res.end(JSON.stringify(post));
 	} else {
 		next();
@@ -114,7 +113,8 @@ The `error` object is made available to the template along with the HTTP `status
 
 ### Regexes in routes
 
-You can use a subset of regular expressions to qualify route parameters, by placing them in parentheses after the parameter name.
+You can use a sub
+of regular expressions to qualify route parameters, by placing them in parentheses after the parameter name.
 
 For example, `routes/items/[id([0-9]+)].html` would only match numeric IDs — `/items/123` would match, but `/items/xyz` would not.
 
